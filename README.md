@@ -18,10 +18,6 @@ To run the XSGCL model within the SELFRec framework, please follow these steps:
 2. **Model Configuration**: Relevant hyperparameters for the model can be found and adjusted in the `XSGCL.conf` file.
 3. **Run the Model**: Once the model is configured according to the guidance in the SELFRec documentation, it is ready to be executed.
 
-### Please Note
-
-When using or referencing this code, please adhere to the corresponding open-source license.
-
 ### Contact Us
 
 If you encounter any issues while using the model, or if you would like to discuss technical details with me, please feel free to contact me through the issues.
