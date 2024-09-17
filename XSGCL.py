@@ -89,11 +89,11 @@ class XSGCL(GraphRecommender):
             'model':self.model,
         }
 
-        # 检查目录是否存在，如果不存在则创建
+        # Check if the directory exists, if not, create it
         model_dir = "../Models"
         if not os.path.exists(model_dir):
             os.makedirs(model_dir)
-        # 保存模型
+        # save model
         # torch.save(content, os.path.join(model_dir, 'lr_db_simgcl.mod'))
 
     def predict(self, u):
