@@ -13,17 +13,17 @@ def bpr_loss(user_emb, pos_item_emb, neg_item_emb):
     return torch.mean(loss)
 
 def bpr_loss_pop(user_emb, pos_item_emb, neg_item_emb, pos_ipop, neg_ipop, alpha):
-    # 计算正样本和负样本的得分
+    # Calculate scores for positive and negative samples
     pos_score = torch.mul(user_emb, pos_item_emb).sum(dim=1)
     neg_score = torch.mul(user_emb, neg_item_emb).sum(dim=1)
 
-    # 计算物品流行度的影响s
+    # Calculate the impact of item popularity
     ipop_diff = pos_ipop - neg_ipop
     weights = torch.exp(-alpha * ipop_diff)  # 计算每个样本对的权重
 
-    # 计算BPR损失
+    # Calculate BPR losses
     base_loss = -torch.log(1e-6 + torch.sigmoid(pos_score - neg_score))
-    weighted_loss = weights * base_loss  # 应用权重
+    weighted_loss = weights * base_loss  # Application weight
 
     return torch.mean(weighted_loss)
 
